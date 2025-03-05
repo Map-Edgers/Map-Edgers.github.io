@@ -1,19 +1,75 @@
 import './App.css'
 import './styles.css'
 
-function App() {
-  const webhookURL = encodeURIComponent(import.meta.env.VITE_WEBHOOK);
+const webhookURL = import.meta.env.VITE_WEBHOOK;
 
-  function discord_message(message: any) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", webhookURL, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        'content': message,
-        'username':'AI',
-    }));
+function sendWebhook() {
+  // Get input elements and cast them to HTMLInputElement
+  const nameInput = document.getElementById('name') as HTMLInputElement | null;
+  const mapInput = document.getElementById('map') as HTMLInputElement | null;
+  const contactInput = document.getElementById('contact') as HTMLInputElement | null;
+
+  // Check if elements exist
+  if (!nameInput || !mapInput || !contactInput) {
+    console.error('One or more input elements are missing!');
+    return;
+  }
+
+  // Get input values
+  const name = nameInput.value;
+  const map = mapInput.value;
+  const contact = contactInput.value;
+
+  // Create the embed object
+  const embed = {
+    title: 'New Map Request',
+    color: 0x0099ff, // Blue color
+    fields: [
+      {
+        name: 'Name',
+        value: name || 'Not provided',
+        inline: true,
+      },
+      {
+        name: 'Map',
+        value: map || 'Not provided',
+        inline: true,
+      },
+      {
+        name: 'Contact',
+        value: contact || 'Not provided',
+        inline: true,
+      },
+    ],
+    timestamp: new Date().toISOString(),
+  };
+
+  // Send the webhook
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', webhookURL, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(
+    JSON.stringify({
+      username: 'AI',
+      embeds: [embed],
+    })
+  );
+
+  // Optional: Clear the form after submission
+  nameInput.value = '';
+  mapInput.value = '';
+  contactInput.value = '';
+
+  console.log('Webhook sent successfully!');
 }
-  discord_message("test")
+
+function App() {
+  console.log(
+    "%cHi! Please don't spam our webhook with junk. This is only for fun, and the webhook only leads to a private channel with my friend and I. So there's really no point to. Thank you <3",
+    "font-size: 30px; font-weight: bold; color: #6c63ff; background: #f4f4f4; padding: 10px; border-radius: 5px;"
+  );
+
+
   return (
     <>
 
@@ -25,6 +81,7 @@ function App() {
                 <li><a href="#tools">Hating Gooners</a></li>
                 <li><a href="#techniques">Aimlabs</a></li>
                 <li><a href="#resources">The Team</a></li>
+                <li><a href="#buy">Buy a map</a></li>
             </ul>
         </nav>
     </header>
@@ -57,6 +114,14 @@ function App() {
             <h2>Dave</h2>
             <img className="map-image width: 50%;" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/Dave.jpg?raw=true" alt="Ancient Map" />
     </section>
+
+    <section id="buy">
+  <input type="text" id="name" placeholder="Your Name" />
+  <input type="text" id="map" placeholder="Map to Buy/Customize" />
+  <input type="text" id="contact" placeholder="Contact Information" />
+  <button onClick={sendWebhook}>Submit</button>
+</section>
+
 
     <footer>
         <p>&copy; 2025 Making Maps. All rights reserved. Joke website, not meant to be taken seriously</p>
