@@ -1,32 +1,24 @@
 
+import { EmbedBuilder, WebhookClient } from 'discord.js';
 import './App.css'
 import './styles.css'
 
 function App() {
   const webhookURL = import.meta.env.MY_VARIABLE;
 
-  async function sendMessage(message: any) {
-    try {
-      const response = await fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content: message,
-        }),
-      });
-  
-      if (response.ok) {
-        console.log('Message sent successfully!');
-      } else {
-        console.error('Failed to send message:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-    }
-  }
-  sendMessage('Hello from JavaScript!');
+  const webhookClient = new WebhookClient({ url: webhookURL });
+
+
+  const embed = new EmbedBuilder()
+	.setTitle('Some Title')
+	.setColor(0x00FFFF);
+
+webhookClient.send({
+	content: 'Webhook test',
+	username: 'some-username',
+	avatarURL: 'https://i.imgur.com/AfFp7pu.png',
+	embeds: [embed],
+});
   return (
     <>
 
