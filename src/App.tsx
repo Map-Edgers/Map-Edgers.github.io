@@ -70,6 +70,10 @@ function App() {
     "%cHi! Please don't spam our webhook with junk. This is only for fun, and the webhook only leads to a private channel with my friend and I. So there's really no point to. Thank you <3",
     "font-size: 30px; font-weight: bold; color: #6c63ff; background: #f4f4f4; padding: 10px; border-radius: 5px;"
   );
+  console.log(
+    "%cHi! Please don't spam our webhook with junk. This is only for fun, and the webhook only leads to a private channel with my friend and I. So there's really no point to. Thank you <3",
+    "font-size: 30px; font-weight: bold; color: #6c63ff; background: #f4f4f4; padding: 10px; border-radius: 5px;"
+  );
 
 
   return (
@@ -118,6 +122,9 @@ function App() {
     </section>
 
     <section id="buy">
+    <h2>Buy our maps</h2>
+      <p>Get a quote for an amazing map today! Your request may, or may not be ignored, because my boss doesn't pay me enough.</p>
+
   <input type="text" id="name" placeholder="Your Name" />
   <input type="text" id="map" placeholder="Map to Buy/Customize" />
   <input type="text" id="contact" placeholder="Contact Information" />
