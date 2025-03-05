@@ -2,7 +2,7 @@ import './App.css'
 import './styles.css'
 
 function App() {
-  const webhookURL = import.meta.env.VITE_WEBHOOK;
+  const webhookURL = import.meta.env.WEBHOOK;
 
   function discord_message(message: any) {
     var xhr = new XMLHttpRequest();
