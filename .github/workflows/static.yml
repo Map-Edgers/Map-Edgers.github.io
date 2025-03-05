@@ -42,6 +42,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Set up environment variables
+        run: |
+          echo "VITE_WEBHOOK=${{ secrets.WEBHOOK }}" >> $GITHUB_ENV
+
       # Step 4: Build the Node.js app (if applicable)
       - name: Build the app
         run: npm run build # Replace with your build script
