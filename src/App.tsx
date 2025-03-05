@@ -1,24 +1,19 @@
-
-import { EmbedBuilder, WebhookClient } from 'discord.js';
 import './App.css'
 import './styles.css'
 
 function App() {
   const webhookURL = import.meta.env.MY_VARIABLE;
 
-  const webhookClient = new WebhookClient({ url: webhookURL });
-
-
-  const embed = new EmbedBuilder()
-	.setTitle('Some Title')
-	.setColor(0x00FFFF);
-
-webhookClient.send({
-	content: 'Webhook test',
-	username: 'some-username',
-	avatarURL: 'https://i.imgur.com/AfFp7pu.png',
-	embeds: [embed],
-});
+  function discord_message(message: any) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", webhookURL, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        'content': message,
+        'username':'AI',
+    }));
+}
+  discord_message("balls")
   return (
     <>
 
