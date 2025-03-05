@@ -4,6 +4,7 @@ import './styles.css'
 const webhookURL = import.meta.env.VITE_WEBHOOK;
 
 function sendWebhook() {
+
   // Get input elements and cast them to HTMLInputElement
   const nameInput = document.getElementById('name') as HTMLInputElement | null;
   const mapInput = document.getElementById('map') as HTMLInputElement | null;
@@ -61,6 +62,7 @@ function sendWebhook() {
   contactInput.value = '';
 
   console.log('Webhook sent successfully!');
+  alert("Form Successfully sent");
 }
 
 function App() {
