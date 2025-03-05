@@ -1,33 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import './styles.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const myVariable = import.meta.env.MY_VARIABLE;
+  console.log(myVariable);
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+    <header>
+        <h1>Map Edgers™</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#tools">Hating Gooners</a></li>
+                <li><a href="#techniques">Aimlabs</a></li>
+                <li><a href="#resources">The Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="introduction">
+        <h2>What is Map Edgers™</h2>
+        <p>We have a **Massive** passion for making maps. And our passion for edging will never **fade**.</p>
+        <img src="https://i.redd.it/flm5ehfarlk21.jpg" alt="Ancient Map" className='map-image'/>
+    </section>
+    
+    <section id="tools">
+        <h2>We hate gooners</h2>
+        <p>We are D1 edgers, and we hate gooning. Never goon, it's against our policies, and you may be framed for crimes you didn't commit. The offenses may include, but are not limited to:</p>
+
+            <p>Assault</p>
+            <p>Battery on a police officer</p>
+            <p>War crimes</p>
+    </section>
+
+    <section id="techniques">
+        <h2>If you purchase a map, you may also get a raffle chance for 1 month free trail of Aimlabs</h2>
+        <p>You should consider buying map, not just for the map, but a chance to fix your trash aim.</p>
+    </section>
+
+    <section id="resources">
+        <h2>Meet the edgers of the month</h2>
+
+            <h2>John</h2>
+            <img className="map-image" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/John.png?raw=true" alt="Ancient Map" />
+            <h2>Dave</h2>
+            <img className="map-image width: 50%;" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/Dave.jpg?raw=true" alt="Ancient Map" />
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Making Maps. All rights reserved. Joke website, not meant to be taken seriously</p>
+    </footer>
     </>
   )
 }
