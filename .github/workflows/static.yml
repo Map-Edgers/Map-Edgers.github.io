@@ -44,7 +44,7 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          echo "WEBHOOK=${{ secrets.WEBHOOK }}" >> $GITHUB_ENV
+          echo "VITE_WEBHOOK=${{ secrets.WEBHOOK }}" >> $GITHUB_ENV
 
       # Step 4: Build the Node.js app (if applicable)
       - name: Build the app

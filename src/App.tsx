@@ -2,7 +2,7 @@ import './App.css'
 import './styles.css'
 
 function App() {
-  const webhookURL = import.meta.env.WEBHOOK;
+  const webhookURL = encodeURIComponent(import.meta.env.VITE_WEBHOOK);
 
   function discord_message(message: any) {
     var xhr = new XMLHttpRequest();
@@ -13,7 +13,7 @@ function App() {
         'username':'AI',
     }));
 }
-  discord_message("balls")
+  discord_message("test")
   return (
     <>
 
