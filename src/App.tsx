@@ -3,8 +3,30 @@ import './App.css'
 import './styles.css'
 
 function App() {
-  const myVariable = import.meta.env.MY_VARIABLE;
-  console.log(myVariable);
+  const webhookURL = import.meta.env.MY_VARIABLE;
+
+  async function sendMessage(message: any) {
+    try {
+      const response = await fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: message,
+        }),
+      });
+  
+      if (response.ok) {
+        console.log('Message sent successfully!');
+      } else {
+        console.error('Failed to send message:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  }
+  sendMessage('Hello from JavaScript!');
   return (
     <>
 
