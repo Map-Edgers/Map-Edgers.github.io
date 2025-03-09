@@ -119,6 +119,8 @@ function App() {
             <img className="map-image" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/John.png?raw=true" alt="Ancient Map" />
             <h2>Dave</h2>
             <img className="map-image width: 50%;" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/Dave.jpg?raw=true" alt="Ancient Map" />
+            <h2>Chris</h2>
+            <img className="map-image" src="https://github.com/Map-Edgers/Map-Edgers.github.io/blob/main/Chris.png?raw=true" alt="Ancient Map" />
     </section>
 
     <section id="buy">
